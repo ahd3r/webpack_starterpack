@@ -24,13 +24,12 @@ module.exports = {
 			{
 				test:/\.css$/,
 				use:cssFile.extract({
-					fallback:'style-loader',
 					use:'css-loader'
 				})
 			},
 			{
 				test:/\.html$/,
-				use:['html-loader']
+				use:'html-loader'
 			},
 			{
 				test:/\.(jpeg|jpg|png)$/,
@@ -38,7 +37,7 @@ module.exports = {
 					{
 						loader:'file-loader',
 						options:{
-							name:'[name].[ext]',
+							name:'[name].[ext]', // [hash].[ext]
 							outputPath:'img/',
 							publicPath:'img/'
 						}

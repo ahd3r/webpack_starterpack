@@ -1,4 +1,4 @@
 import { num } from './addition';
-import './style/style.css';
+import './css/style.css';
 
 console.log(num);

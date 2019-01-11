@@ -4,13 +4,13 @@ const htmlPlugin = require('html-webpack-plugin');
 
 const cssFile = new extraText('style.css');
 const htmlFile = new htmlPlugin({
-	template:'src/index.html'
+	template:'./src/index.html'
 });
 
 module.exports = {
 	entry:'./src/app.js',
 	output:{
-		path:path.resolve(__dirname,'./dist/'),
+		path:path.resolve(__dirname,'dist'),
 		filename:'bundel.js'
 	},
 	mode:'development',
@@ -24,9 +24,8 @@ module.exports = {
 			{
 				test:/\.css$/,
 				use:cssFile.extract({
-					use:['style-loader','css-loader']
-					// fallback:'style-loader',
-					// use:'css-loader'
+					fallback:'style-loader',
+					use:'css-loader'
 				})
 			},
 			{
@@ -39,7 +38,7 @@ module.exports = {
 					{
 						loader:'file-loader',
 						options:{
-							name:'[name].[ext]', // [hash].[ext]
+							name:'[name].[ext]',
 							outputPath:'img/',
 							publicPath:'img/'
 						}

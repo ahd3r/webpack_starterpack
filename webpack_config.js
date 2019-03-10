@@ -22,7 +22,7 @@ module.exports = {
 				exclude: /node_modules/,
 				use:['babel-loader'],
 				options: {
-				  presets: ["@babel/preset-env"]
+				  presets: ["env"]
 				}
 			},
 			{

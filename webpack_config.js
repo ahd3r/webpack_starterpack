@@ -19,7 +19,11 @@ module.exports = {
 			// Remove it and look what heppend with your code
 			{
 				test:/\.js$/,
-				use:['babel-loader']
+				exclude: /node_modules/,
+				use:['babel-loader'],
+				options: {
+				  presets: ["@babel/preset-env"]
+				}
 			},
 			{
 				test:/\.css$/,
